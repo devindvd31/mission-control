@@ -8,7 +8,8 @@
       "dueDate": "",
       "status": "pending",
       "createdAt": "2026-02-18T16:28:24Z",
-      "source": "github"
+      "source": "github",
+      "githubUrl": "https://github.com/devindvd31/mission-control/issues/1"
     }
   ]
 }
