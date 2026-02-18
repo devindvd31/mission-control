@@ -461,27 +461,26 @@
       calendar.render();
     }
     
-    // Load Tasks
+    // Load Tasks - fetch from GitHub JSON first, fallback to localStorage
     async function loadTasks() {
       try {
         const response = await fetch('data/tasks.json');
-        tasks = await response.json();
-        updateStats();
-        renderTaskList();
-        if (calendar) {
-          calendar.refetchEvents();
+        if (response.ok) {
+          tasks = await response.json();
+          // Also save to localStorage as backup
+          localStorage.setItem('tasks', JSON.stringify(tasks));
         }
       } catch (e) {
-        console.log('Using local storage');
+        console.log('Cannot load from server, using localStorage');
         const stored = localStorage.getItem('tasks');
         if (stored) {
           tasks = JSON.parse(stored);
         }
-        updateStats();
-        renderTaskList();
-        if (calendar) {
-          calendar.refetchEvents();
-        }
+      }
+      updateStats();
+      renderTaskList();
+      if (calendar) {
+        calendar.refetchEvents();
       }
     }
     
