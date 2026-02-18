@@ -510,6 +510,7 @@
       document.getElementById('pendingTasks').textContent = tasks.filter(t => t.status === 'pending').length;
       document.getElementById('inProgressTasks').textContent = tasks.filter(t => t.status === 'in-progress').length;
       document.getElementById('completedTasks').textContent = tasks.filter(t => t.status === 'completed').length;
+      console.log('Tasks loaded:', tasks);
     }
     
     // Render Task List
