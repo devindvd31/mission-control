@@ -1,3 +1,14 @@
 {
-  "tasks": []
+  "tasks": [
+    {
+      "id": "gh-1",
+      "title": "每日 RWA 新聞蒐集任務",
+      "description": "每日蒐集 RWA（現實世界資產代幣化）相關新聞\n\n來源：GitHub Issue #1",
+      "priority": "medium",
+      "dueDate": "",
+      "status": "pending",
+      "createdAt": "2026-02-18T16:28:24Z",
+      "source": "github"
+    }
+  ]
 }
