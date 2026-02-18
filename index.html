@@ -466,12 +466,13 @@
       try {
         const response = await fetch('data/tasks.json?v=' + new Date().getTime());
         if (response.ok) {
-          tasks = await response.json();
+          const data = await response.json();
+          tasks = data.tasks || [];
           // Also save to localStorage as backup
           localStorage.setItem('tasks', JSON.stringify(tasks));
         }
       } catch (e) {
-        console.log('Cannot load from server, using localStorage');
+        console.log('Cannot load from server, using localStorage', e);
         const stored = localStorage.getItem('tasks');
         if (stored) {
           tasks = JSON.parse(stored);
