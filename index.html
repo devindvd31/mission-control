@@ -464,7 +464,7 @@
     // Load Tasks - fetch from GitHub JSON first, fallback to localStorage
     async function loadTasks() {
       try {
-        const response = await fetch('data/tasks.json');
+        const response = await fetch('data/tasks.json?v=' + new Date().getTime());
         if (response.ok) {
           tasks = await response.json();
           // Also save to localStorage as backup
