@@ -595,7 +595,10 @@
     
     // Sync (placeholder)
     function syncTasks() {
-      alert('同步功能需要部署到伺服器後才能使用');
+      // Force reload tasks from GitHub
+      localStorage.removeItem('tasks');
+      loadTasks();
+      alert('已同步最新任務！');
     }
   </script>
 </body>
